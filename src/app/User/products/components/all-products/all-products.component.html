@@ -3,11 +3,9 @@
 <label for="" class="my-1"> Categories:
 
 </label><br>
-<select class="form-control">
-    <option value=""> option1</option>
-    <option value=""> option1</option>
-    <option value=""> option1</option>
-    <option value=""> option1</option>
+<select class="form-control"  >
+    <option *ngFor="let category of categories" value="{{category}}"> {{category}}</option>
+    
 
 </select>
  </div>
@@ -16,17 +14,15 @@
 <main>
     <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
         <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
-            <div class="col">
+            <div class="col" *ngFor="let product of products">
                 <div class="card h-100 shadow-sm"> <img
-                        src="https://www.freepnglogos.com/uploads/notebook-png/download-laptop-notebook-png-image-png-image-pngimg-2.png"
-                        class="card-img-top" alt="...">
+                        src="{{product.image}}"
+                        class="card-img-top">
                     <div class="card-body">
-                        <div class="clearfix mb-3"> <span class="float-start badge rounded-pill bg-primary">ASUS
-                                Rog</span> <span class="float-end price-hp">12354.00&euro;</span> </div>
-                        <h5 class="card-title">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem
-                            eaque ut eveniet aut quis rerum. Asperiores accusamus harum ducimus velit odit ut. Saepe,
-                            iste optio laudantium sed aliquam sequi.</h5>
-                        <div class="text-center my-4"> <a href="#" class="btn btn-warning">Check offer</a> </div>
+                        <div class="clearfix mb-3" id="title"> <span class="float-start badge rounded-pill bg-primary">{{product.title}}
+                                </span> <span class="float-end price-hp">{{product.price}}&nbsp; DH</span> </div>
+                        <h5 class="card-title">{{product.description}}</h5>
+                        <div class="text-center my-4"> <a href="#" class="btn btn-warning">Add to Cart</a> </div>
                     </div>
                 </div>
             </div>
