@@ -1,14 +1,6 @@
 
  <div class="my-2 w-25">
-<label for="" class="my-1"> Categories:
-
-</label><br>
-<select class="form-control" (change)="filterCategory($event)" >
-    <option value="all" selected> All</option>
-    <option *ngFor="let category of categories" value="{{category}}"> {{category}}</option>
-    
-
-</select>
+<app-select [data]="categories" [title]="'categories:'" (selectedValue)="filterCategory($event)"></app-select>
  </div>
  <br><br>
 
