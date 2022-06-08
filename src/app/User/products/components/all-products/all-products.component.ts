@@ -10,6 +10,7 @@ export class AllProductsComponent implements OnInit {
 
   products: any[]=[];
   categories: any[]=[];
+  loading: boolean=false;
   constructor(private productService:ProductsService) { }
 
   ngOnInit(): void {
@@ -18,12 +19,16 @@ export class AllProductsComponent implements OnInit {
   }
  
   getProducts(){
+    this.loading=true;
     this.productService.getAllProducts().subscribe(
       (res:any)=> {
            this.products=res;
+           this.loading=false;
       },
       err =>{
+        this.loading=false;
         alert("Error");
+        
       }
     )
   }
@@ -35,6 +40,7 @@ export class AllProductsComponent implements OnInit {
          
         },
         err =>{
+         
           alert("Error");
         }
       )
@@ -43,18 +49,20 @@ export class AllProductsComponent implements OnInit {
   filterCategory(event:any){
       let value = event.target.value;
       if(value!="all"){
+        this.loading=true;
         this.productService.getProductByCategory(value).subscribe(
           (res:any) =>{
             this.products=res;
+            this.loading=false;
           },
           err =>{
+            this.loading=false;
             alert("Error");
           }
-        )
-        // console.log(value);
-               
+        )      
       }
       else{
         this.getProducts(); 
-  }}
+  }
+}
 }
