@@ -14,6 +14,10 @@ export class ProductsService {
  }
    
  getAllGategories(){
-   return this.http.get(environment.url+'products/categories')
+   return this.http.get(environment.url+'products/categories');
+ }
+
+ getProductByCategory(category:any){
+   return this.http.get(environment.url+'products/category/'+category);
  }
 }
