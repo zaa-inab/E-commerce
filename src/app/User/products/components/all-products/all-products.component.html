@@ -1,6 +1,6 @@
 
  <div class="my-2 w-25">
-<app-select [data]="categories" [title]="'categories:'" (selectedValue)="filterCategory($event)"></app-select>
+<app-select [data]="categories" [title]="'Categories:'" (selectedValue)="filterCategory($event)"></app-select>
  </div>
  <br><br>
 
@@ -8,19 +8,10 @@
     <div class="container-fluid bg-trasparent my-4 p-3" style="position: relative;">
         <div class="row row-cols-1 row-cols-xs-2 row-cols-sm-2 row-cols-lg-4 g-3">
             <div class="col" *ngFor="let product of products">
-                <div class="card h-100 shadow-sm"> <img
-                        src="{{product.image}}"
-                        class="card-img-top">
-                    <div class="card-body">
-                        <div class="clearfix mb-3" id="title"> <span class="float-start badge rounded-pill bg-primary">{{product.title}}
-                                </span> <span class="float-end price-hp">{{product.price}}&nbsp; DH</span> </div>
-                        <h5 class="card-title">{{product.description}}</h5>
-                        <div class="text-center my-4"> <a href="#" class="btn btn-warning">Add to Cart</a> </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-       </div>     
+    <app-product [data]="product"></app-product>
+</div>
+</div>
+</div> 
 </main>
 
 <div id="spinner" class="text-center w-100" *ngIf="loading">
