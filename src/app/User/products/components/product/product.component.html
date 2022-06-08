@@ -4,6 +4,6 @@
                 id="title">{{data.title.substring(0,28)}}
             </span> <span class="float-end price-hp">{{data.price}}&nbsp; DH</span> </div>
         <h5 class="card-title">{{data.description}}</h5>
-        <div class="text-center my-4"> <a href="#" class="btn btn-warning">Add to Cart</a> </div>
+        <div class="text-center my-4"> <button  class="btn btn-warning" (click)="add()">Add to Cart</button> </div>
     </div>
 </div>
